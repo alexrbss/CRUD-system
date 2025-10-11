@@ -1,3 +1,5 @@
+package src.usuario;
+
 import java.util.Scanner;
 
 public class UsuarioMain {

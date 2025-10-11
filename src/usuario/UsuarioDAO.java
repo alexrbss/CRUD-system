@@ -1,8 +1,10 @@
+package src.usuario;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import database.DataBaseConnection;
+import src.database.DataBaseConnection;
 
 public class UsuarioDAO {
     public void salvar(Usuario usuario) {
