@@ -1,0 +1,25 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Compiled files
+*.class
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+
+# Outros
+*.tmp
+*.temp

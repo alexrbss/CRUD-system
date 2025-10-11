@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Banco PostgreSQL
+  postgres:
+    image: postgres:15
+    container_name: crud-postgres
+    environment:
+      POSTGRES_DB: UserDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - crud-network
+
+  # Aplicação Java
+  crud-app:
+    build: .
+    container_name: crud-app
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: UserDB
+      DB_USER: postgres
+      DB_PASSWORD: 1234
+    networks:
+      - crud-network
+    stdin_open: true
+    tty: true
+
+volumes:
+  postgres_data:
+
+networks:
+  crud-network:
+    driver: bridge
