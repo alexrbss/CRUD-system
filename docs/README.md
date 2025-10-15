@@ -99,12 +99,19 @@ O projeto segue o padrão arquitetural **MVC (Model-View-Controller)**:
    > - 🔗 Configurar a rede interna entre os containers
    > - 🚀 Executar o sistema automaticamente
 
-3. **Acesse o sistema:**
-   - O sistema será iniciado automaticamente no console
+3. **Acesse o container da aplicação:**
+   ```bash
+   docker exec -it crud-app /bin/bash
+   ```
+
+4. **Execute o sistema dentro do container:**
+   ```bash
+   java -cp "/app/lib/postgresql-42.7.7.jar:/app" src.usuario.UsuarioMain
+   ```
    - Use o menu interativo para navegar pelas funcionalidades
    - Todos os dados são persistidos no container PostgreSQL
 
-4. **Para parar o sistema:**
+5. **Para parar o sistema:**
    ```bash
    docker-compose down
    ```
